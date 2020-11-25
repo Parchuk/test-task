@@ -1,28 +1,51 @@
 <template>
   <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+    <div class="container">
+      <Modal :toggleModal="toggleModal" />
+      <Header />
+      <router-view :toggleModal="toggleModal" :setCurrentContactId="setCurrentContactId" />
+    </div>
   </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+import Header from '@/components/Header'
+import Modal from '@/components/Modal'
+import { mapGetters } from 'vuex'
 
 export default {
-  name: 'App',
   components: {
-    HelloWorld
-  }
+    Header,
+    Modal,
+  },
+  computed: mapGetters(['getStatusModal']),
+  methods: {
+    toggleModal() {
+      this.$store.dispatch('switchStatusModal', !this.getStatusModal)
+    },
+    setCurrentContactId(action, id) {
+      this.$store.dispatch('setActionsForModal', action)
+      this.$store.dispatch('setCurrentContactId', id)
+      this.toggleModal()
+    },
+  },
 }
 </script>
 
-<style>
+<style lang="scss">
+body {
+  margin: 0;
+  background-image: url('~@/assets/backgrounds-blank.jpg');
+}
 #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
+  color: #fff;
+}
+#app > .container {
+  margin: 0 auto;
+  max-width: 1200px;
+  padding-bottom: 50px;
 }
 </style>
