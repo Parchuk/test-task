@@ -3,7 +3,7 @@
     <div class="contact-details__contaiter">
       <div class="user-img-box">
         <span v-if="currentContact.imgUrl">
-          <img :src="require(`../assets/uploads/${currentContact.imgUrl}`)" alt="userImg" />
+          <img :src="require(`../assets/${currentContact.imgUrl}`)" alt="userImg" />
         </span>
         <span v-else class="userDefaultImg">
           <font-awesome-icon :icon="['fas', 'user']" />
