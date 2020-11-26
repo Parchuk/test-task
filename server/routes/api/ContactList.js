@@ -6,7 +6,7 @@ const fs = require('fs');
 
 var storage = multer.diskStorage({
     destination: function (req, file, cb) {
-        cb(null, __dirname + '../../../public/img');
+        cb(null, __dirname + '../../../uploads');
     },
     filename: function (req, file, cb) {
         cb(null, file.originalname);
@@ -104,9 +104,9 @@ router.post('/upload', upload.single('file'), (req, res) => {
 router.delete('/delete-contact/:id', async (req, res) => {
     Contact.findByIdAndDelete({ _id: req.params.id }).then(deletedContact => {
         Attribute.remove({ contactId: req.params.id }).then(deletedAttribute => {
-            // if (fs.existsSync(`${__dirname}/../../public/img/${deletedContact.imgUrl}`)) {
-            //     fs.unlinkSync(`${__dirname}/../../public/img/${deletedContact.imgUrl}`);
-            // }
+            if (fs.existsSync(`${__dirname}/../../uploads/${deletedContact.imgUrl}`)) {
+                fs.unlinkSync(`${__dirname}/../../uploads/${deletedContact.imgUrl}`);
+            }
         });
         res.status(200);
     }
