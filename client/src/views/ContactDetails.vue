@@ -3,7 +3,10 @@
     <div class="contact-details__contaiter">
       <div class="user-img-box">
         <span v-if="currentContact.imgUrl">
-          <img :src="'http://localhost:5000/uploads/' + currentContact.imgUrl" alt="userImg" />
+          <img
+            :src="'https://pacific-inlet-31861.herokuapp.com/uploads/' + currentContact.imgUrl"
+            alt="userImg"
+          />
         </span>
         <span v-else class="userDefaultImg">
           <font-awesome-icon :icon="['fas', 'user']" />
