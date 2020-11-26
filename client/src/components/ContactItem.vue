@@ -7,7 +7,7 @@
       <router-link tag="li" :to="'/contact-details/' + contact._id" exact class="user-link">
         <span v-if="contact.imgUrl">
           <img
-            :src="'https://blooming-anchorage-66115.herokuapp.com/uploads/' + contact.imgUrl"
+            :src="'https://thawing-oasis-29267.herokuapp.com/uploads/' + contact.imgUrl"
             alt="contactImg"
           />
         </span>
