@@ -17,14 +17,13 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cors());
 
 app.use('/api/contact-list', require('./routes/api/ContactList'));
-app.use('/uploads', express.static(path.join(__dirname, '/uploads')));
 
 // Handle production
 
 if (process.env.NODE_ENV === 'production') {
 
     // Static folder
-    app.use(express.static(__dirname + '/public'));
+    app.use('/public/uploads', express.static(__dirname + '/public'));
 
     // Handle SPA
     app.get(/.*/, (req, res) => res.sendFile(__dirname + '/public/index.html'));
