@@ -6,7 +6,7 @@
     <ul class="user-list__item" v-for="contact in allContacts" :key="contact._id">
       <router-link tag="li" :to="'/contact-details/' + contact._id" exact class="user-link">
         <span v-if="contact.imgUrl">
-          <img :src="'./uploads/' + contact.imgUrl" alt="contactImg" />
+          <img :src="'uploads/' + contact.imgUrl" alt="contactImg" />
         </span>
         <span v-else class="userDefaultImg">
           <font-awesome-icon :icon="['fas', 'user']" />
