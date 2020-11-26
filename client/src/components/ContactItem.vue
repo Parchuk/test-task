@@ -7,7 +7,7 @@
       <router-link tag="li" :to="'/contact-details/' + contact._id" exact class="user-link">
         <span v-if="contact.imgUrl">
           <img
-            :src="'https://pacific-inlet-31861.herokuapp.com/uploads/' + contact.imgUrl"
+            :src="'https://contact-list-2020.herokuapp.com/uploads/' + contact.imgUrl"
             alt="contactImg"
           />
         </span>

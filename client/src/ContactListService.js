@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-const url = 'api/contact-list/';
+const url = '/api/contact-list/';
 
 class ContactListService {
     // Get Contact List

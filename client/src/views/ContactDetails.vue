@@ -4,7 +4,7 @@
       <div class="user-img-box">
         <span v-if="currentContact.imgUrl">
           <img
-            :src="'https://pacific-inlet-31861.herokuapp.com/uploads/' + currentContact.imgUrl"
+            :src="'https://contact-list-2020.herokuapp.com/uploads/' + currentContact.imgUrl"
             alt="userImg"
           />
         </span>
